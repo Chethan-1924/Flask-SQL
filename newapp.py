@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request,jsonify
 import mysql.connector
 
 # 1. create flask app
@@ -39,7 +39,7 @@ def adduser():
 def users():
     cursor.execute("select * from users")
     data = cursor.fetchall()
-    return str(data)
+    return jsonify(data)
 
 #6.run server
 
