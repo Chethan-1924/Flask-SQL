@@ -26,6 +26,7 @@ def adduser():
         name = request.form["name"]
         age = request.form["age"]
         query = "insert into users (name,age) values (%s,%s)"
+        # “ %s is used as a placeholder in parameterized queries to safely pass values to SQL statements and prevent SQL injection.”
         values = (name,age)
 
         cursor.execute(query,values)
